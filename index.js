@@ -184,11 +184,48 @@ var person = {
   getFullName: function () {
     return this.firstName + " " + this.lastName;
   },
-  fullName: firstName + " " + lastName
+  // fullName: this.firstName + " " + this.lastName
 };
 
 console.log("person.firstName", person.firstName);
 console.log("person.lastName", person.lastName);
 console.log("person.gpa", person.gpa);
 console.log("person.getFullName()", person.getFullName());
-console.log("person.fullName", person.fullName);
+// console.log("person.fullName", person.fullName);
+
+console.log("\n=======================");
+console.log("==== Classes");
+console.log("=======================");
+
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+Person.prototype.getFullName = function () {
+  return this.firstName + " " + this.lastName;
+};
+
+var p = new Person("Luke", "Skywalker");
+
+console.log("p:", p);
+console.log("p.firstName:", p.firstName);
+console.log("p.lastName:", p.lastName);
+console.log("p.getFullName():", p.getFullName());
+
+var p2 = new Person("Leia", "Organa");
+
+console.log("p2:", p2);
+console.log("p2.firstName:", p2.firstName);
+console.log("p2.lastName:", p2.lastName);
+console.log("p2.getFullName():", p2.getFullName());
+
+
+/*
+ * The below is bad practice, but still possible.
+ */
+// Array.prototype.foo = function () {
+//   console.log("Foo!");
+// }
+//
+// emptyArray.foo();
